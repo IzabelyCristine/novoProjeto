@@ -1,0 +1,181 @@
+* {
+  margin: 0; /*Retirando referencia de margens*/
+  padding: 0; /*Retirando referencia de espaços*/
+  box-sizing: border-box; /*Adicionando referencia de tamanho, sendo ela: a borda da caixa*/
+}
+
+:root {
+  --text-color: white; /*Para a mudança de cores em todo o lugar, colocamos um nome qualquer text-color, para definir*/
+  --bg-url: url(./assets/bg-mobile.jpg); /*Para mudança de imagem, atribuímos a imagem inicial*/
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --heighlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  /*Chamando propriedade criada no html para mudar cor*/
+  --text-color: black; /*Mudando a cor de todas as escritas*/
+  --bg-url: url(./assets/bg-desktop-light.jpg); /*Mudando a imagem de fundo*/
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.02);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --heighlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  background: var(--bg-url) no-repeat top center / cover;
+  /*Adicionando imagem a caixa principal*/
+}
+
+body * {
+  font-family: "inter", sans-serif; /*Adicionando a fonte nova e suas caracteristicas*/
+  color: var(
+    --text-color
+  ); /*Adicionando a cor da fonte, mudando para variavél dinamica*/
+}
+
+#container {
+  width: 360px; /*Adicionando a largura da caixa principal, neste caso nao precisou da altura*/
+  margin: 56px auto 0px; /*Adicionando as margens de fora da caixa principal*/
+  padding: 0 24px; /*Adicionando espaçamento dos ícones da caixa principal*/
+  
+}
+
+#profile {
+  text-align: center; /*Alinhando o trexto da caixa principal*/
+  padding: 0px; /*Adicionando um espaçamento dos itens na caixa principal, img e escrita*/
+}
+
+#profile img {
+  /*Chamando o  do perfil, img*/
+  width: 112px; /*Adicionando uma largura a imagem*/
+  margin-top: 24px;
+}
+
+#profile p {
+  /*Chamando o  do perfil, escrita*/
+  font-weight: 500px; /*Adicionando o peso da fonte da escrita (mais escuro)(tem no site) */
+  line-height: 24px; /*Adicionando a altura de linha (tem no site)*/
+  margin-top: 8px; /*Adicionando margem do topo, até a imagem (caixa do p)*/
+  margin-bottom: 24px;
+}
+
+#switch {
+  
+  position: relative;
+  width: 70px;
+  margin: 4px auto;
+}
+
+#switch button {
+  
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.light #switch button {
+
+  right: 0;
+  left: initial;
+}
+
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+ul {
+  list-style: none; /*Retirando pontos das frases (estilo)*/
+  display: flex; /*Criando um display flex para o pai*/
+  flex-direction: column; /*Criando tipo de posicionamento da lista*/
+  gap: 16px; /*Espaçando os elementos da coluna*/
+  padding: 24px 0; /*Colocando espaçamento superior e inferior para os icones e 0 nas laterais*/
+}
+
+ul li a {
+  /*Chamando a lista, linhas e frases*/
+  
+  display: flex; /*criando um display flexivel*/
+  align-items: center; /*Alinhando os itens na linha do meio invisivel do display flex*/
+  justify-content: center; /*Alinhando as frases no centro como referencia uma linha ao centr da pag*/
+
+  padding: 16px 24px; /*Adicinando espaço nas caixas das frases*/
+
+  background: var(--surface-color); /*Adicionando cor na caixa das linhas*/
+  border: 1px solid var(--stroke-color); /*Adicionando a cor da borda*/
+  border-radius: 8px; /*Adicionando borda redonda*/
+
+  backdrop-filter: blur(4px); /*Adicionando embaçado*/
+  -webkit-backdrop-filter: blur(
+    4px
+  ); /*Chamando propriedade pra alguns browser aceitarem*/
+
+  text-decoration: none; /*tirando linha debaixo*/
+  font-weight: 500; /*Colocando peso da fonte, 500 ou bold, por ser padrão*/
+
+  transition: background 0.2s; /*suavizando e deixando rápida a trasição de cor background ou all para generalizar*/
+}
+
+ul li a:hover {
+  /*Adicionando animação aos botões*/
+  background: rgba(
+    255,
+    255,
+    255,
+    0.05
+  ); /* Adicionando cor ao passar o mouse, obs, só pode ser a cor escolhida inicialmente acima*/
+  border: 1.5px solid var(--text-color); /*Adicionando borda, tamanho e cor*/
+}
+
+#social-links {
+  display: flex; /*criando um display flexivel*/
+  justify-content: center; /*Alinhando as frases no centro como referencia uma linha ao centr da pag*/
+  padding: 24px 0; /*Adicinando espaço nas caixas das frases*/
+  font-size: 24px; /*Adicionando tamanho dos ícones*/
+  
+}
+
+#social-links a {
+  display: flex; /*criando um display flexivel*/
+  align-items: center; /*Alinhando os itens na linha do meio invisivel do display flex*/
+  justify-content: center; /*Alinhando as frases no centro como referencia uma linha ao centr da pag*/
+  padding: 16px; /*Colocando espaçamento para todos os lados*/
+ 
+
+  transition: background 0.2s; /*Colocando transição do hover para o normal*/
+  border-radius: 50%; /*Adicionando borda redonda*/
+}
+
+#social-links a:hover {
+  /*Adicionando animação aos botões*/
+  background: var(--surface-color); /*Adicionando cor ao passar o mouse*/
+  padding: 16px; /*Colocando espaçamento para todos os lados*/
+}
+
+footer {
+  /*Chamando propriedade de rodapé*/
+  padding: 24px 0; /*Colocando espaçamento para todos os lados*/
+  text-align: center; /*Alinhando texto*/
+  margin-bottom: 30px; /*Adicionando margem abaixo da caixa*/
+  font-size: 14px; /*Adicionando tamanho da fonte*/
+  
+}
