@@ -45,4 +45,4 @@ Esse projeto está sob a licença MIT.
 ## branch stage
 ---
 
-Feito com ♥ by Rocketseat :wave: [Participe da nossa comunidade!](https://discord.gg/rocketseat)
+Feito com ♥ by Rocketseat :wave: [Participe da nossa comunidade!](https://discord.gg/rocketseat)#novoProjeto
