@@ -28,6 +28,7 @@
 body {
   background: var(--bg-url) no-repeat top center / cover;
   /*Adicionando imagem a caixa principal*/
+  height: 100vh;
 }
 
 body * {
@@ -38,10 +39,10 @@ body * {
 }
 
 #container {
-  width: 360px; /*Adicionando a largura da caixa principal, neste caso nao precisou da altura*/
+  width: 100%; /*Adicionando a largura da caixa principal, neste caso nao precisou da altura*/
+  max-width: 588px;
   margin: 56px auto 0px; /*Adicionando as margens de fora da caixa principal*/
   padding: 0 24px; /*Adicionando espaçamento dos ícones da caixa principal*/
-  
 }
 
 #profile {
@@ -64,14 +65,12 @@ body * {
 }
 
 #switch {
-  
   position: relative;
   width: 70px;
   margin: 4px auto;
 }
 
 #switch button {
-  
   width: 32px;
   height: 32px;
   background: white var(--switch-bg-url) no-repeat center;
@@ -83,14 +82,16 @@ body * {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+  animation: slide-back 0.2s;
 }
 
 .light #switch button {
-
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
 }
 
+#switch button:hover {
+  outline: 8px solid var(--heighlight-color);
+}
 
 #switch span {
   display: block;
@@ -113,7 +114,7 @@ ul {
 
 ul li a {
   /*Chamando a lista, linhas e frases*/
-  
+
   display: flex; /*criando um display flexivel*/
   align-items: center; /*Alinhando os itens na linha do meio invisivel do display flex*/
   justify-content: center; /*Alinhando as frases no centro como referencia uma linha ao centr da pag*/
@@ -151,7 +152,6 @@ ul li a:hover {
   justify-content: center; /*Alinhando as frases no centro como referencia uma linha ao centr da pag*/
   padding: 24px 0; /*Adicinando espaço nas caixas das frases*/
   font-size: 24px; /*Adicionando tamanho dos ícones*/
-  
 }
 
 #social-links a {
@@ -159,7 +159,6 @@ ul li a:hover {
   align-items: center; /*Alinhando os itens na linha do meio invisivel do display flex*/
   justify-content: center; /*Alinhando as frases no centro como referencia uma linha ao centr da pag*/
   padding: 16px; /*Colocando espaçamento para todos os lados*/
- 
 
   transition: background 0.2s; /*Colocando transição do hover para o normal*/
   border-radius: 50%; /*Adicionando borda redonda*/
@@ -177,5 +176,31 @@ footer {
   text-align: center; /*Alinhando texto*/
   margin-bottom: 30px; /*Adicionando margem abaixo da caixa*/
   font-size: 14px; /*Adicionando tamanho da fonte*/
-  
+}
+
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg.jpg);
+  }
+  .light {
+    --bg-url: url(./assets/bg-light.jpg);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0%;
+  }
 }
